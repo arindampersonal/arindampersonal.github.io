@@ -19,7 +19,7 @@ export const socialLinks: SocialLink[] = [
   {
     id: 'linkedin',
     name: 'LinkedIn',
-    url: 'https://www.linkedin.com/in/arindam-dutta',
+    url: 'https://www.linkedin.com/in/mr-arindam-dutta/',
     handle: 'Arindam Dutta',
     iconName: 'Linkedin',
     isPrimary: true,
@@ -27,8 +27,8 @@ export const socialLinks: SocialLink[] = [
   {
     id: 'email',
     name: 'Email',
-    url: 'mailto:arindaminaction@gmail.com',
-    handle: 'arindaminaction@gmail.com',
+    url: 'mailto:officiallyarindam@gmail.com',
+    handle: 'officiallyarindam',
     iconName: 'Mail',
     isPrimary: true,
   },
