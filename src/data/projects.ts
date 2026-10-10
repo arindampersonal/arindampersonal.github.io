@@ -9,6 +9,7 @@ export const projects: Project[] = [
     isFlagship: true,
     status: "Live in Production",
     featuredOrder: 1,
+    imageUrl: "./images/project-lifeops.jpg",
     links: {
       liveUrl: "https://lifeops.living",
       repoUrl: "", // Editable if public code link is added
@@ -72,6 +73,7 @@ export const projects: Project[] = [
     category: "Virtualization & Cloud Infrastructure",
     status: "Enterprise Architecture",
     featuredOrder: 2,
+    imageUrl: "./images/project-avd.jpg",
     links: {
       liveUrl: "",
       repoUrl: "",
@@ -127,6 +129,7 @@ export const projects: Project[] = [
     category: "CI/CD & DevSecOps",
     status: "Enterprise Architecture",
     featuredOrder: 3,
+    imageUrl: "./images/project-devsecops.jpg",
     links: {
       liveUrl: "",
       repoUrl: "",
@@ -183,6 +186,7 @@ export const projects: Project[] = [
     category: "Infrastructure as Code",
     status: "Modular Framework",
     featuredOrder: 4,
+    imageUrl: "./images/project-terraform.jpg",
     links: {
       liveUrl: "",
       repoUrl: "",

@@ -47,12 +47,19 @@ export const Navbar: React.FC = () => {
           className="flex items-center space-x-2.5 group shrink-0"
           aria-label="Arindam Dutta Home"
         >
-          <span className="font-semibold text-base sm:text-lg tracking-tight text-[#111827] dark:text-[#F4F5F2] group-hover:text-sage-800 dark:group-hover:text-white transition-colors whitespace-nowrap">
-            {profile.name}
-          </span>
-          <span className="text-xs font-mono text-sage-700 dark:text-sage-400 font-normal hidden sm:inline select-none">
-            · Cloud & DevOps
-          </span>
+          <img 
+            src="./images/avatar.jpg" 
+            alt="Arindam Dutta" 
+            className="w-8 h-8 rounded-full object-cover border border-azure-400 shadow-2xs group-hover:scale-105 transition-transform" 
+          />
+          <div className="flex flex-col">
+            <span className="font-semibold text-sm sm:text-base tracking-tight text-[#111827] dark:text-[#F4F5F2] group-hover:text-azure-600 transition-colors whitespace-nowrap">
+              {profile.name}
+            </span>
+            <span className="text-[10px] font-mono text-azure-700 dark:text-azure-400 font-normal select-none -mt-0.5">
+              Azure DevOps & Cloud
+            </span>
+          </div>
         </a>
 
         {/* Desktop Navigation */}

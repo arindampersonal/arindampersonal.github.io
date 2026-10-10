@@ -76,6 +76,7 @@ export interface Project {
   status: 'Live in Production' | 'Enterprise Architecture' | 'Modular Framework' | 'Engineering Lab';
   period?: string;
   featuredOrder: number;
+  imageUrl?: string;
   links: {
     liveUrl?: string;
     repoUrl?: string;

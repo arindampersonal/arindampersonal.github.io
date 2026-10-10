@@ -51,8 +51,8 @@ export const profile: PersonalInfo = {
     ]
   },
   photoConfig: {
-    showPhoto: false, // Set to true when an approved photograph is provided
-    url: "", // e.g., "/images/arindam.jpg"
+    showPhoto: true,
+    url: "./images/avatar.jpg",
     altText: "Arindam Dutta — Senior Azure DevOps & Cloud Engineer",
   },
   contact: {
