@@ -6,7 +6,7 @@ export const Experience: React.FC = () => {
   return (
     <section id="experience" className="py-16 sm:py-20 border-t border-black/[0.08] dark:border-white/[0.08]">
       <div className="max-w-6xl mx-auto px-5 sm:px-8 lg:px-10">
-        
+
         {/* Section Header */}
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 pb-8 border-b border-black/[0.08] dark:border-white/[0.08]">
           <div>
@@ -19,7 +19,7 @@ export const Experience: React.FC = () => {
             </h2>
           </div>
           <span className="font-mono text-xs text-[#6B7280] dark:text-[#636F6A]">
-            TATA CONSULTANCY SERVICES (2018 — PRESENT)
+            TATA CONSULTANCY SERVICES (2020 — PRESENT)
           </span>
         </div>
 
@@ -48,6 +48,8 @@ export const Experience: React.FC = () => {
 
                   <div className="flex flex-wrap items-center gap-4 text-xs font-mono text-[#4B5563] dark:text-[#9BA5A0] pt-1">
                     <span className="font-semibold text-[#111827] dark:text-white inline-flex items-center space-x-1.5">
+                      <Briefcase className="w-3.5 h-3.5 text-azure-600" />
+                      <span>{item.designation}</span>
                       <Briefcase className="w-3.5 h-3.5 text-azure-600" />
                       <span>{item.company}</span>
                     </span>

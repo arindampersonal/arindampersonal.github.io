@@ -6,26 +6,26 @@ export const certifications: CertificationItem[] = [
     title: "Microsoft Certified: DevOps Engineer Expert",
     issuer: "Microsoft",
     year: "Certified Track",
-    status: "Active",
+    status: "In Progress",
     badgeLabel: "AZ-400 Track",
     verificationUrl: "" // Editable URL if public Microsoft Learn transcript link is added
   },
   {
-    id: "azure-solutions-architect",
-    title: "Microsoft Certified: Azure Solutions Architect Expert",
+    id: "azure-fundamentals",
+    title: "Microsoft Certified: Azure Fundamentals",
     issuer: "Microsoft",
-    year: "Certified Track",
+    year: "Completed",
     status: "Active",
-    badgeLabel: "AZ-305 Track",
+    badgeLabel: "AZ-900",
     verificationUrl: "" // Editable URL
   },
   {
-    id: "azure-administrator",
-    title: "Microsoft Certified: Azure Administrator Associate",
+    id: "azure-virtual-desktop",
+    title: "Microsoft Certified: Azure Virtual Desktop Specialty",
     issuer: "Microsoft",
-    year: "Certified Track",
+    year: "Completed",
     status: "Active",
-    badgeLabel: "AZ-104 Track",
+    badgeLabel: "AZ-140",
     verificationUrl: "" // Editable URL
   }
 ];
@@ -35,9 +35,9 @@ export const continuousLearning: ContinuousLearningItem[] = [
     id: "ai-systems",
     domain: "Applied AI & Vector Architectures",
     topics: [
-      "Large Language Models (LLMs)", 
-      "Retrieval-Augmented Generation (RAG)", 
-      "Vector Embeddings & Search", 
+      "Large Language Models (LLMs)",
+      "Retrieval-Augmented Generation (RAG)",
+      "Vector Embeddings & Search",
       "Agentic AI Patterns"
     ],
     status: "Active Exploration",
@@ -47,8 +47,8 @@ export const continuousLearning: ContinuousLearningItem[] = [
     id: "gitops-argocd",
     domain: "Modern Platform Engineering & GitOps",
     topics: [
-      "Argo CD", 
-      "Kubernetes Declarative Delivery", 
+      "Argo CD",
+      "Kubernetes Declarative Delivery",
       "GitOps Drift Detection"
     ],
     status: "Active Exploration",

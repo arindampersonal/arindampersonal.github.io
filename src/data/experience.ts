@@ -4,8 +4,9 @@ export const experience: ExperienceItem[] = [
   {
     id: "tcs-senior-devops",
     company: "Tata Consultancy Services (TCS)",
+    designation: "Information Technology Analyst",
     role: "Senior Azure DevOps Engineer / Cloud DevOps Engineer",
-    period: "2018 — Present (~6+ Years)", // Subject to updating exact duration
+    period: "2020 — Present (~6+ Years)", // Subject to updating exact duration
     location: "Kolkata, India",
     isCurrent: true,
     summary: "Leading cloud infrastructure operations, CI/CD pipeline automation, and enterprise Azure virtualization for mission-critical client environments.",

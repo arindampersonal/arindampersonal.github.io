@@ -96,6 +96,7 @@ export interface ExperienceItem {
   id: string;
   company: string;
   role: string;
+  designation: string;
   period: string;
   location: string;
   isCurrent: boolean;
