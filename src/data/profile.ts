@@ -9,14 +9,14 @@ export const profile: PersonalInfo = {
     city: "Kolkata",
     state: "West Bengal",
     country: "India",
-    remoteAvailability: "Available for Remote & Hybrid",
+    remoteAvailability: "Open to switch on relevant offers",
     timezone: "Asia/Kolkata",
     utcOffset: "UTC+5:30",
   },
   experienceYears: "6+", // Editable field
   currentEmployer: "Tata Consultancy Services (TCS)",
   statusBadge: {
-    text: "Available for Cloud & Platform Engineering",
+    text: "Open to switch on relevant offers",
     isAvailable: true,
   },
   headline: "Architecting resilient cloud platforms, automated delivery pipelines, and scalable enterprise infrastructure.",

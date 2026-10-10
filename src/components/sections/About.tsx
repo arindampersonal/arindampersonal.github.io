@@ -39,7 +39,7 @@ export const About: React.FC = () => {
   return (
     <section id="about" className="py-16 sm:py-20 border-t border-black/[0.08] dark:border-white/[0.08]">
       <div className="max-w-6xl mx-auto px-5 sm:px-8 lg:px-10">
-        
+
         {/* Section Header */}
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 pb-8 border-b border-black/[0.08] dark:border-white/[0.08]">
           <div>
@@ -52,22 +52,22 @@ export const About: React.FC = () => {
             </h2>
           </div>
           <span className="font-mono text-xs text-[#6B7280] dark:text-[#636F6A]">
-            TATA CONSULTANCY SERVICES · 2018 — PRESENT
+            TATA CONSULTANCY SERVICES · 2020 — PRESENT
           </span>
         </div>
 
         {/* 2-Column Content Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 pt-10 items-start">
-          
+
           {/* Left Column (5 cols): Story & High-Impact Metrics */}
           <div className="lg:col-span-5 space-y-6">
-            
+
             <div className="p-6 rounded-2xl border border-black/[0.08] dark:border-white/10 bg-white dark:bg-ink-800 shadow-xs space-y-4">
               <h3 className="font-serif text-xl font-medium text-[#111827] dark:text-white flex items-center space-x-2">
                 <span>🎯</span>
                 <span>The Engineering Philosophy</span>
               </h3>
-              
+
               <p className="text-sm text-[#4B5563] dark:text-[#9BA5A0] leading-relaxed">
                 I believe infrastructure should be <strong>invisible, predictable, and self-healing</strong>. Over 6+ years at Tata Consultancy Services, I have helped enterprise clients replace manual, fragile server configurations with reliable, code-defined cloud platforms.
               </p>

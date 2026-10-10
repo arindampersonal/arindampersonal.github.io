@@ -1,8 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { profile } from '../../data/profile';
-import { 
-  ArrowUpRight, 
+import {
+  ArrowUpRight,
   Mail
 } from 'lucide-react';
 
@@ -28,10 +28,10 @@ export const Hero: React.FC = () => {
     <section className="relative pt-10 sm:pt-16 pb-16 sm:pb-20 overflow-hidden">
       <div className="max-w-6xl mx-auto px-5 sm:px-8 lg:px-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
-          
+
           {/* Left Column (7 cols): Greeting, Headline & Value Proposition */}
           <div className="lg:col-span-7 space-y-6">
-            
+
             {/* Friendly Greeting & Availability Badge */}
             <motion.div
               initial={{ opacity: 0, y: 12 }}
@@ -46,7 +46,7 @@ export const Hero: React.FC = () => {
               <span className="opacity-40">•</span>
               <span className="flex items-center space-x-1 text-emerald-700 dark:text-emerald-400 font-medium">
                 <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse"></span>
-                <span>Available for high-impact roles</span>
+                <span>Open to switch with relevant offers</span>
               </span>
             </motion.div>
 
@@ -131,12 +131,12 @@ export const Hero: React.FC = () => {
           >
             {/* Visual Portrait & Badge Wrapper */}
             <div className="relative w-full max-w-sm">
-              
+
               {/* Outer decorative glow */}
               <div className="absolute -inset-1 rounded-3xl bg-gradient-to-r from-azure-500/20 via-teal-500/20 to-indigo-500/20 blur-xl opacity-75 dark:opacity-40"></div>
-              
+
               <div className="relative rounded-3xl border border-black/[0.08] dark:border-white/10 bg-white dark:bg-ink-800 p-4 shadow-[0_8px_30px_rgb(0,0,0,0.06)] dark:shadow-card">
-                
+
                 {/* Photo Frame */}
                 <div className="relative aspect-4/3 rounded-2xl overflow-hidden bg-gradient-to-br from-azure-100 to-indigo-100 dark:from-ink-900 dark:to-ink-850 border border-black/[0.06] dark:border-white/[0.06]">
                   <img
@@ -144,7 +144,7 @@ export const Hero: React.FC = () => {
                     alt="Arindam Dutta — Senior Azure DevOps & Cloud Engineer"
                     className="w-full h-full object-cover object-top hover:scale-102 transition-transform duration-500"
                   />
-                  
+
                   {/* Floating Badge (Top Right) */}
                   <div className="absolute top-3 right-3 px-3 py-1 rounded-full bg-white/95 dark:bg-ink-900/90 backdrop-blur-md border border-black/[0.08] dark:border-white/15 shadow-sm text-[11px] font-semibold text-azure-800 dark:text-azure-300 flex items-center space-x-1.5">
                     <span>☁️</span>
