@@ -16,21 +16,21 @@ Rather than adopting a generic developer template or an oversaturated neon "game
 ## 2. Design System & Visual Direction
 
 ### 2.1 Color Palette & Tokens
-The design is built on a dark-first foundation with an optional high-contrast editorial light mode.
+The design is built on a full **light-mode-first foundation** (warm editorial alabaster/paper) with an optional secondary dark mode.
 
-| Token | Dark Mode (Default) | Light Mode (Editorial) | Usage |
+| Token | Light Mode (Default) | Dark Mode (Optional) | Usage |
 |---|---|---|---|
-| `--bg-base` | `#0A0D10` (Obsidian Ink) | `#FBFBFA` (Alabaster Paper) | Canvas background |
-| `--bg-surface` | `#11161B` (Deep Slate) | `#FFFFFF` (Pure White) | Card & panel backgrounds |
-| `--bg-elevated` | `#171F26` (Muted Ink) | `#F3F4F1` (Subtle Warm Grey) | Hover states, code containers |
-| `--border-subtle` | `rgba(255, 255, 255, 0.07)` | `rgba(0, 0, 0, 0.08)` | 1px hairline dividers, card borders |
-| `--border-accent` | `rgba(139, 168, 155, 0.25)` | `rgba(77, 109, 96, 0.25)` | Active states & interactive borders |
-| `--text-primary` | `#F4F5F2` (Warm Off-White) | `#14171A` (Charcoal Black) | Headings, primary content |
-| `--text-secondary` | `#9BA5A0` (Muted Sage Grey) | `#5A6662` (Editorial Slate) | Body copy, metadata |
-| `--text-muted` | `#636F6A` (Deep Olive Grey) | `#8A9692` (Subtle Grey) | Captions, timestamps, hairline tags |
-| `--accent-sage` | `#8BA89B` (Muted Sage) | `#4D6D60` (Deep Forest Sage) | Section accents, key tags, highlights |
-| `--accent-azure` | `#38BDF8` (Sky Azure) | `#0284C7` (Cobalt Azure) | Cloud identity, link underlines, terminal cues |
-| `--status-live` | `#34D399` (Emerald Telemetry) | `#059669` (Emerald) | Live system status indicator |
+| `--bg-base` | `#FAFAF8` (Alabaster Paper) | `#0A0D10` (Obsidian Ink) | Canvas background |
+| `--bg-surface` | `#FFFFFF` (Pure White) | `#11161B` (Deep Slate) | Card & panel backgrounds |
+| `--bg-elevated` | `#F3F4F1` (Subtle Warm Grey) | `#171F26` (Muted Ink) | Hover states, code containers |
+| `--border-subtle` | `rgba(0, 0, 0, 0.07)` | `rgba(255, 255, 255, 0.07)` | 1px hairline dividers, card borders |
+| `--border-accent` | `rgba(61, 90, 78, 0.25)` | `rgba(139, 168, 155, 0.25)` | Active states & interactive borders |
+| `--text-primary` | `#111827` (Charcoal Black) | `#F4F5F2` (Warm Off-White) | Headings, primary content |
+| `--text-secondary` | `#4B5563` (Editorial Slate) | `#9BA5A0` (Muted Sage Grey) | Body copy, metadata |
+| `--text-muted` | `#6B7280` (Subtle Grey) | `#636F6A` (Deep Olive Grey) | Captions, timestamps, hairline tags |
+| `--accent-sage` | `#3D5A4E` (Deep Forest Sage) | `#8BA89B` (Muted Sage) | Section accents, key tags, highlights |
+| `--accent-azure` | `#0284C7` (Cobalt Azure) | `#38BDF8` (Sky Azure) | Cloud identity, link underlines, terminal cues |
+| `--status-live` | `#059669` (Emerald Telemetry) | `#34D399` (Emerald Telemetry) | Live system status indicator |
 
 ### 2.2 Typography Hierarchy
 - **Editorial Serif (Headings & Selected Emphases)**:

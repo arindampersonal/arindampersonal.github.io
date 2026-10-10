@@ -1,0 +1,88 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg-base: #FAFAF8;
+    --bg-surface: #FFFFFF;
+    --bg-elevated: #F3F4F1;
+    --border-subtle: rgba(0, 0, 0, 0.07);
+    --border-accent: rgba(61, 90, 78, 0.25);
+    --text-primary: #14171A;
+    --text-secondary: #4B5563;
+    --accent-sage: #3D5A4E;
+    --accent-azure: #0284C7;
+  }
+
+  .dark {
+    --bg-base: #0A0D10;
+    --bg-surface: #11161B;
+    --bg-elevated: #171F26;
+    --border-subtle: rgba(255, 255, 255, 0.07);
+    --border-accent: rgba(139, 168, 155, 0.25);
+    --text-primary: #F4F5F2;
+    --text-secondary: #9BA5A0;
+    --accent-sage: #8BA89B;
+    --accent-azure: #38BDF8;
+  }
+
+  body {
+    background-color: var(--bg-base);
+    color: var(--text-primary);
+    transition: background-color 0.2s ease, color 0.2s ease;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  /* Monospace tabular nums for code and metrics */
+  code, pre, .font-mono {
+    font-feature-settings: "tnum" 1, "zero" 1;
+  }
+}
+
+/* Subtle Technical Grid Background */
+.bg-grid-technical {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(0, 0, 0, 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.035) 1px, transparent 1px);
+}
+
+.dark .bg-grid-technical {
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+}
+
+/* Radial Vignette Mask for Grid */
+.mask-radial-faded {
+  mask-image: radial-gradient(ellipse at 50% 25%, black 40%, transparent 80%);
+  -webkit-mask-image: radial-gradient(ellipse at 50% 25%, black 40%, transparent 80%);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(61, 90, 78, 0.2);
+  border-radius: 9999px;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: rgba(139, 168, 155, 0.25);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(61, 90, 78, 0.35);
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: rgba(139, 168, 155, 0.45);
+}
