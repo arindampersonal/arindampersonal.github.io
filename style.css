@@ -1,0 +1,900 @@
+/* ==========================================================================
+   Aurora Design System — Stylesheet
+   Dark-first glassmorphism with animated gradient glows, soft shadows,
+   and smooth micro-interactions.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Design Tokens & CSS Custom Properties
+   -------------------------------------------------------------------------- */
+:root {
+  /* Surface & Base Colors */
+  --bg: #0b0b1a;
+  --bg-soft: #14142b;
+  --text: #e8e8ff;
+  --muted: #9a9ac0;
+
+  /* Accent Colors */
+  --accent-1: #7c5cff; /* Violet */
+  --accent-2: #00d4ff; /* Cyan */
+  --accent-3: #ff5ca8; /* Pink */
+
+  /* Glassmorphism, Borders & Shadows */
+  --card: rgba(255, 255, 255, 0.06);
+  --border: rgba(255, 255, 255, 0.12);
+  --radius: 20px;
+  --shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+
+  /* Derived Component Variables (Strictly CSS variables, no hardcoded colors) */
+  --btn-primary-text: #ffffff;
+  --btn-primary-glow: 0 0 25px rgba(124, 92, 255, 0.4);
+  --btn-primary-glow-hover: 0 0 35px rgba(0, 212, 255, 0.6);
+  --card-glow: rgba(124, 92, 255, 0.25);
+  --input-focus-ring: 0 0 0 4px rgba(0, 212, 255, 0.15);
+  --nav-bg: color-mix(in srgb, var(--bg) 60%, transparent);
+}
+
+/* Light Theme Overrides */
+:root[data-theme="light"] {
+  --bg: #f4f5ff;
+  --bg-soft: #ffffff;
+  --text: #1a1a3a;
+  --muted: #5c5c85;
+  --card: rgba(255, 255, 255, 0.7);
+  --border: rgba(30, 30, 80, 0.12);
+  --shadow: 0 20px 60px rgba(40, 40, 90, 0.1);
+
+  --btn-primary-text: #ffffff;
+  --btn-primary-glow: 0 0 20px rgba(124, 92, 255, 0.35);
+  --btn-primary-glow-hover: 0 0 30px rgba(0, 212, 255, 0.5);
+  --card-glow: rgba(124, 92, 255, 0.18);
+  --input-focus-ring: 0 0 0 4px rgba(0, 212, 255, 0.25);
+  --nav-bg: color-mix(in srgb, var(--bg) 75%, transparent);
+}
+
+/* --------------------------------------------------------------------------
+   2. Reset & Global Base
+   -------------------------------------------------------------------------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: "Segoe UI", system-ui, -apple-system, Roboto, sans-serif;
+  line-height: 1.6;
+  background-color: var(--bg);
+  color: var(--text);
+  overflow-x: hidden;
+  position: relative;
+  min-height: 100vh;
+  /* Theme change transitions background and color over 0.4s */
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* Accessibility: Skip Link & Focus States */
+.skip-link {
+  position: absolute;
+  top: -60px;
+  left: 20px;
+  background: var(--accent-1);
+  color: var(--btn-primary-text);
+  padding: 10px 18px;
+  border-radius: var(--radius);
+  z-index: 9999;
+  text-decoration: none;
+  font-weight: 600;
+  transition: top 0.25s ease;
+}
+
+.skip-link:focus {
+  top: 20px;
+  outline: 2px solid var(--accent-2);
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent-2);
+  outline-offset: 3px;
+}
+
+/* --------------------------------------------------------------------------
+   3. Typography & Gradient Text Effect
+   -------------------------------------------------------------------------- */
+h1, h2, h3, h4 {
+  color: var(--text);
+  letter-spacing: -0.02em;
+}
+
+/* Section titles 2.2rem */
+.section-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 12px;
+}
+
+.section-subtitle {
+  color: var(--muted);
+  font-size: 1.1rem;
+  max-width: 650px;
+  margin-bottom: 40px;
+}
+
+.section-header-center {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Key words gradient text effect */
+.gradient-text {
+  background: linear-gradient(120deg, var(--accent-1), var(--accent-2), var(--accent-3));
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: aurora-gradient-shift 6s linear infinite;
+  display: inline;
+}
+
+@keyframes aurora-gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   4. Background Animated Blobs
+   Three fixed, blurred circular blobs behind everything (filter: blur(110px),
+   opacity ~0.45, z-index -1): violet top-left (480px), cyan bottom-right
+   (480px), pink center (320px, opacity 0.25). 18s ease-in-out infinite.
+   -------------------------------------------------------------------------- */
+.blobs-container {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(110px);
+  will-change: transform;
+}
+
+.blob-violet {
+  width: 480px;
+  height: 480px;
+  background: var(--accent-1);
+  top: -80px;
+  left: -80px;
+  opacity: 0.45;
+  animation: blob-drift-1 18s ease-in-out infinite;
+}
+
+.blob-cyan {
+  width: 480px;
+  height: 480px;
+  background: var(--accent-2);
+  bottom: -80px;
+  right: -80px;
+  opacity: 0.45;
+  animation: blob-drift-2 18s ease-in-out infinite -6s;
+}
+
+.blob-pink {
+  width: 320px;
+  height: 320px;
+  background: var(--accent-3);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0.25;
+  animation: blob-drift-3 18s ease-in-out infinite -12s;
+}
+
+@keyframes blob-drift-1 {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(80px, 60px) scale(1.08);
+  }
+  66% {
+    transform: translate(-50px, 90px) scale(0.94);
+  }
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+}
+
+@keyframes blob-drift-2 {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(-80px, -70px) scale(1.1);
+  }
+  66% {
+    transform: translate(60px, -50px) scale(0.92);
+  }
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+}
+
+@keyframes blob-drift-3 {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  33% {
+    transform: translate(calc(-50% + 60px), calc(-50% - 50px)) scale(1.12);
+  }
+  66% {
+    transform: translate(calc(-50% - 70px), calc(-50% + 50px)) scale(0.88);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   5. Layout & Container
+   Container: width min(1100px, 92%), centered. Sections have 70px vertical padding.
+   Card grids use CSS Grid: repeat(auto-fit, minmax(240px, 1fr)), gap 24px.
+   -------------------------------------------------------------------------- */
+.container {
+  width: min(1100px, 92%);
+  margin-inline: auto;
+}
+
+section {
+  padding: 70px 0;
+  position: relative;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
+}
+
+/* --------------------------------------------------------------------------
+   6. Navbar Component
+   Sticky top 0, backdrop blur 14px, semi-transparent background color-mix 60%,
+   1px bottom border. Logo left gradient text, links right with animated underline.
+   Hide all but theme toggle under 640px.
+   -------------------------------------------------------------------------- */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  background: var(--nav-bg);
+  border-bottom: 1px solid var(--border);
+  transition: background-color 0.4s ease, border-color 0.4s ease;
+}
+
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 72px;
+}
+
+.nav-logo {
+  font-size: 1.4rem;
+  font-weight: 800;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  list-style: none;
+}
+
+.nav-link {
+  color: var(--muted);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+  position: relative;
+  padding: 6px 0;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: var(--text);
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--accent-2);
+  transition: width 0.3s ease;
+  border-radius: 999px;
+}
+
+.nav-link:hover::after,
+.nav-link:focus-visible::after {
+  width: 100%;
+}
+
+/* Theme Toggle Button */
+.theme-toggle-btn {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  width: 42px;
+  height: 42px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--text);
+  transition: transform 0.3s ease, border-color 0.3s ease, background 0.3s ease, color 0.3s ease;
+}
+
+.theme-toggle-btn:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent-2);
+}
+
+.theme-toggle-btn svg {
+  width: 19px;
+  height: 19px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Hide links on screens under 640px while keeping the theme toggle */
+@media (max-width: 639px) {
+  .nav-links {
+    display: none;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   7. Hero Component
+   Centered, 110px top padding. Small pill badge above heading.
+   Typing effect (JS, cycling words, accent-2 colored with caret border-right).
+   Two buttons below.
+   -------------------------------------------------------------------------- */
+.hero-section {
+  text-align: center;
+  padding-top: 110px;
+  padding-bottom: 70px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid var(--border);
+  background: var(--card);
+  border-radius: 999px;
+  padding: 8px 18px;
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--text);
+  margin-bottom: 24px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent-2);
+  box-shadow: 0 0 8px var(--accent-2);
+}
+
+.hero-title {
+  /* Hero h1: clamp(2.6rem, 7vw, 5rem), weight 800, line-height 1.1 */
+  font-size: clamp(2.6rem, 7vw, 5rem);
+  font-weight: 800;
+  line-height: 1.1;
+  max-width: 960px;
+  margin-bottom: 20px;
+}
+
+.hero-typing-container {
+  font-size: clamp(1.2rem, 3.2vw, 1.75rem);
+  font-weight: 600;
+  margin-bottom: 24px;
+  min-height: 2.4em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.typing-prefix {
+  color: var(--muted);
+  margin-right: 8px;
+}
+
+.typing-text {
+  color: var(--accent-2);
+  font-weight: 700;
+  border-right: 2px solid var(--accent-2);
+  padding-right: 4px;
+  animation: typing-caret 0.8s step-end infinite;
+}
+
+@keyframes typing-caret {
+  0%, 100% {
+    border-color: var(--accent-2);
+  }
+  50% {
+    border-color: transparent;
+  }
+}
+
+.hero-desc {
+  color: var(--muted);
+  font-size: 1.15rem;
+  max-width: 680px;
+  line-height: 1.7;
+  margin-bottom: 36px;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* --------------------------------------------------------------------------
+   8. Buttons Component
+   Pill-shaped (border-radius 999px), padding 14px 32px, weight 600.
+   Primary: gradient 120deg accent-1 to accent-2, white text, colored glow shadow;
+   hover translateY(-3px) with stronger glow.
+   Ghost: translucent card background with 1px border.
+   -------------------------------------------------------------------------- */
+.btn {
+  border-radius: 999px;
+  padding: 14px 32px;
+  font-weight: 600;
+  font-size: 1rem;
+  font-family: inherit;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease, background 0.3s ease, color 0.3s ease;
+  line-height: 1.2;
+}
+
+.btn-primary {
+  background: linear-gradient(120deg, var(--accent-1), var(--accent-2));
+  color: var(--btn-primary-text);
+  border: none;
+  box-shadow: var(--btn-primary-glow);
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--btn-primary-glow-hover);
+}
+
+.btn-ghost {
+  background: var(--card);
+  border: 1px solid var(--border);
+  color: var(--text);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.btn-ghost:hover {
+  transform: translateY(-3px);
+  border-color: var(--accent-2);
+  color: var(--text);
+}
+
+/* --------------------------------------------------------------------------
+   9. Cards Component
+   Background var(--card), 1px var(--border), radius var(--radius),
+   padding 32px 26px, backdrop-filter blur(10px), var(--shadow).
+   Large emoji icon on top, then h3, then muted paragraph.
+   On hover: translateY(-8px), border turns accent-1, radial-gradient glow
+   fades in positioned at mouse cursor via --x/--y CSS variables.
+   -------------------------------------------------------------------------- */
+.card {
+  position: relative;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 32px 26px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease, background-color 0.4s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Dynamic radial glow attached to mouse position */
+.card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(350px circle at var(--x, 50%) var(--y, 50%), var(--card-glow), transparent 70%);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s ease;
+  z-index: 1;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  border-color: var(--accent-1);
+}
+
+.card:hover::before {
+  opacity: 1;
+}
+
+.card > * {
+  position: relative;
+  z-index: 2;
+}
+
+.card-emoji {
+  font-size: 2.4rem;
+  line-height: 1;
+  margin-bottom: 18px;
+  display: inline-block;
+}
+
+.card h3 {
+  font-size: 1.35rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.card p {
+  color: var(--muted);
+  font-size: 0.98rem;
+  line-height: 1.6;
+}
+
+/* Card Tags / Tech Badges */
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 18px;
+  list-style: none;
+}
+
+.card-tag {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 4px 12px;
+  font-size: 0.8rem;
+  color: var(--muted);
+  font-weight: 500;
+}
+
+.card-footer {
+  margin-top: auto;
+  padding-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card-link {
+  color: var(--accent-2);
+  font-weight: 600;
+  font-size: 0.92rem;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: gap 0.25s ease, color 0.25s ease;
+}
+
+.card-link:hover {
+  gap: 8px;
+  color: var(--accent-1);
+}
+
+/* --------------------------------------------------------------------------
+   10. Forms Component
+   Inputs/textarea have card background, 1px border, 14px radius,
+   14px 18px padding; on focus border turns accent-2 and 4px rgba(0,212,255,0.15)
+   ring appears.
+   -------------------------------------------------------------------------- */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  width: 100%;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-align: left;
+}
+
+.form-label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.form-input,
+.form-textarea {
+  width: 100%;
+  box-sizing: border-box;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 14px 18px;
+  color: var(--text);
+  font-family: inherit;
+  font-size: 1rem;
+  line-height: 1.5;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.4s ease, color 0.4s ease;
+}
+
+.form-textarea {
+  min-height: 130px;
+  resize: vertical;
+}
+
+.form-input:focus,
+.form-textarea:focus {
+  border-color: var(--accent-2);
+  box-shadow: var(--input-focus-ring);
+  outline: none;
+}
+
+.form-input::placeholder,
+.form-textarea::placeholder {
+  color: var(--muted);
+  opacity: 0.8;
+}
+
+/* Form Submit Status Banner */
+.form-status {
+  padding: 12px 16px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--text);
+  font-size: 0.92rem;
+  display: none;
+}
+
+.form-status.show {
+  display: block;
+}
+
+/* --------------------------------------------------------------------------
+   11. Specific Layout Grids & Sections
+   -------------------------------------------------------------------------- */
+.contact-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+}
+
+@media (min-width: 768px) {
+  .contact-container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.contact-info-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  list-style: none;
+  margin-top: 24px;
+}
+
+.contact-info-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 18px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--card);
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 500;
+  transition: border-color 0.3s ease, transform 0.3s ease;
+}
+
+.contact-info-item:hover {
+  border-color: var(--accent-2);
+  transform: translateX(4px);
+}
+
+.contact-icon {
+  font-size: 1.3rem;
+  display: inline-flex;
+}
+
+/* Copy Email Button in Contact Card */
+.copy-btn {
+  margin-left: auto;
+  background: var(--card);
+  border: 1px solid var(--border);
+  color: var(--muted);
+  border-radius: 999px;
+  padding: 6px 14px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  font-family: inherit;
+  transition: color 0.25s ease, border-color 0.25s ease;
+}
+
+.copy-btn:hover {
+  color: var(--text);
+  border-color: var(--accent-2);
+}
+
+/* Experience Timeline Card */
+.timeline-item {
+  position: relative;
+  border-left: 2px solid var(--border);
+  padding-left: 24px;
+  margin-left: 12px;
+  margin-bottom: 32px;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: -7px;
+  top: 4px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--accent-1);
+  box-shadow: 0 0 10px var(--accent-1);
+}
+
+.timeline-period {
+  color: var(--accent-2);
+  font-size: 0.88rem;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+/* --------------------------------------------------------------------------
+   12. Footer Component
+   Centered, muted text, 1px top border.
+   -------------------------------------------------------------------------- */
+footer {
+  text-align: center;
+  color: var(--muted);
+  border-top: 1px solid var(--border);
+  padding: 50px 0;
+  margin-top: 50px;
+  font-size: 0.95rem;
+  transition: border-color 0.4s ease, color 0.4s ease;
+}
+
+.footer-nav {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  list-style: none;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.footer-link {
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+  color: var(--text);
+}
+
+/* --------------------------------------------------------------------------
+   13. Motion Rules & Scroll-Reveal
+   Scroll-reveal: elements start at opacity 0 and translateY(40px), then
+   animate to visible over 0.8s ease when they enter viewport (IntersectionObserver,
+   threshold 0.15, animate only once).
+   Respect prefers-reduced-motion by disabling blob and shine animations.
+   -------------------------------------------------------------------------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  will-change: opacity, transform;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger delay helpers for child elements within cards */
+.delay-1 { transition-delay: 0.1s; }
+.delay-2 { transition-delay: 0.2s; }
+.delay-3 { transition-delay: 0.3s; }
+
+/* Prefers Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .blob-violet,
+  .blob-cyan,
+  .blob-pink {
+    animation: none !important;
+  }
+
+  .gradient-text {
+    animation: none !important;
+  }
+
+  .typing-text {
+    animation: none !important;
+    border-right: none !important;
+  }
+
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}

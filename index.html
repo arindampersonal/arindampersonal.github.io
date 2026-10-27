@@ -1,23 +1,536 @@
-<!doctype html>
-<html lang="en" class="scroll-smooth">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
-    <title>Arindam Dutta — Senior Azure DevOps & Cloud Engineer</title>
-    <meta name="description" content="Senior Azure DevOps and Cloud Engineer specializing in Azure infrastructure, Terraform, multi-stage CI/CD automation, AVD architecture, and platform engineering." />
-    <meta name="author" content="Arindam Dutta" />
-    <meta property="og:title" content="Arindam Dutta — Senior Azure DevOps & Cloud Engineer" />
-    <meta property="og:description" content="Engineering portfolio featuring LifeOps, cloud infrastructure architecture, Terraform IaC, and enterprise CI/CD automation." />
-    <meta property="og:type" content="website" />
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+  <title>Arindam Dutta — Senior Azure DevOps & Cloud Infrastructure Engineer</title>
+  <meta name="description" content="Senior Azure DevOps & Cloud Infrastructure Engineer portfolio featuring LifeOps, modular Terraform architectures, zero-trust CI/CD automation, and high-performance virtualization systems." />
+  <meta name="author" content="Arindam Dutta" />
+  <meta property="og:title" content="Arindam Dutta — Senior Azure DevOps & Cloud Infrastructure Engineer" />
+  <meta property="og:description" content="Portfolio showcasing enterprise cloud architecture, Terraform IaC, zero-trust CI/CD pipelines, and applied AI platforms." />
+  <meta property="og:type" content="website" />
+
+  <!-- Aurora Design System Stylesheet -->
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <!-- Accessible Skip Link -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Fixed Blurred Background Blobs (Three circular blobs with 18s drift animation) -->
+  <div class="blobs-container" aria-hidden="true">
+    <div class="blob blob-violet"></div>
+    <div class="blob blob-cyan"></div>
+    <div class="blob blob-pink"></div>
+  </div>
+
+  <!-- Sticky Navbar -->
+  <nav class="navbar" aria-label="Main Navigation">
+    <div class="container nav-container">
+      <a href="#" class="nav-logo gradient-text" aria-label="Arindam Dutta Home">
+        Arindam Dutta
+      </a>
+
+      <div class="nav-right">
+        <ul class="nav-links">
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#pillars" class="nav-link">Pillars</a></li>
+          <li><a href="#projects" class="nav-link">Projects</a></li>
+          <li><a href="#skills" class="nav-link">Skills</a></li>
+          <li><a href="#experience" class="nav-link">Experience</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+
+        <!-- Theme Toggle Button (Saves choice in localStorage) -->
+        <button id="theme-toggle-btn" class="theme-toggle-btn" type="button" aria-label="Toggle color theme" title="Toggle color theme">
+          <!-- Sun Icon (shown in dark mode) -->
+          <svg id="theme-icon-sun" viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <!-- Moon Icon (shown in light mode) -->
+          <svg id="theme-icon-moon" viewBox="0 0 24 24" aria-hidden="true" style="display: none;">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content Container -->
+  <main id="main-content">
     
-    <!-- Google Fonts: Newsreader, Plus Jakarta Sans, JetBrains Mono -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-  </head>
-  <body class="bg-[#FAFAF9] text-[#14171A] dark:bg-ink-900 dark:text-[#F4F5F2] font-sans antialiased selection:bg-sage-200 selection:text-sage-900 dark:selection:bg-sage-400/20 dark:selection:text-sage-200">
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+    <!-- Hero Section (Centered, 110px top padding, badge, typing effect, 2 pill buttons) -->
+    <header class="hero-section container">
+      <div class="hero-badge reveal">
+        <span class="status-dot"></span>
+        <span>Open to switch on relevant offers &bull; Kolkata, India</span>
+      </div>
+
+      <h1 class="hero-title reveal">
+        Senior <span class="gradient-text">Azure DevOps</span> &amp; <span class="gradient-text">Cloud Infrastructure</span> Engineer
+      </h1>
+
+      <div class="hero-typing-container reveal">
+        <span class="typing-prefix">Specializing in:</span>
+        <span id="typing-text" class="typing-text">Azure Cloud Platforms</span>
+      </div>
+
+      <p class="hero-desc reveal">
+        Architecting resilient cloud platforms, automated delivery pipelines, and scalable enterprise infrastructure with 6+ years of production experience at Tata Consultancy Services.
+      </p>
+
+      <div class="hero-actions reveal">
+        <a href="#projects" class="btn btn-primary">
+          <span>Explore Case Studies</span>
+          <span aria-hidden="true">&darr;</span>
+        </a>
+        <a href="#contact" class="btn btn-ghost">
+          <span>Get In Touch</span>
+          <span aria-hidden="true">&rarr;</span>
+        </a>
+      </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="container">
+      <div class="section-header-center reveal">
+        <h2 class="section-title">
+          Engineering <span class="gradient-text">Philosophy &amp; Background</span>
+        </h2>
+        <p class="section-subtitle">
+          Bridging the gap between robust systems architecture and high-velocity continuous delivery.
+        </p>
+      </div>
+
+      <div class="card-grid">
+        <article class="card reveal delay-1">
+          <div class="card-emoji">💼</div>
+          <h3>Enterprise Track Record</h3>
+          <p>
+            With 6+ years of engineering at Tata Consultancy Services (TCS), I lead the design, governance, and automated deployment of mission-critical Azure platforms and multi-region cloud infrastructures.
+          </p>
+        </article>
+
+        <article class="card reveal delay-2">
+          <div class="card-emoji">⚙️</div>
+          <h3>Immutability &amp; IaC</h3>
+          <p>
+            Prioritizing declarative infrastructure-as-code with Terraform, immutable Docker images, and configuration drift detection to eliminate manual operational friction and human error.
+          </p>
+        </article>
+
+        <article class="card reveal delay-3">
+          <div class="card-emoji">🛡️</div>
+          <h3>Security by Design</h3>
+          <p>
+            Standardizing zero-trust pipelines, SonarQube static code quality gates, Key Vault secretless managed identity integration, and strict compliance automation.
+          </p>
+        </article>
+
+        <article class="card reveal delay-1">
+          <div class="card-emoji">🤖</div>
+          <h3>Applied AI &amp; Modern Craft</h3>
+          <p>
+            Actively engineering modern backend microservices in Python with FastAPI, containerized retrieval-augmented generation (RAG) vector pipelines, and autonomous agentic workflows.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Core Pillars Section -->
+    <section id="pillars" class="container">
+      <div class="section-header-center reveal">
+        <h2 class="section-title">
+          Core Architectural <span class="gradient-text">Pillars</span>
+        </h2>
+        <p class="section-subtitle">
+          Foundational engineering principles that guide every system and deployment.
+        </p>
+      </div>
+
+      <div class="card-grid">
+        <article class="card reveal delay-1">
+          <div class="card-emoji">🚀</div>
+          <h3>Infrastructure as Code</h3>
+          <p>
+            Declarative, repeatable, and version-controlled environments via Terraform and modular Azure landing zone architectures with automated state locking.
+          </p>
+        </article>
+
+        <article class="card reveal delay-2">
+          <div class="card-emoji">🛡️</div>
+          <h3>Zero-Trust CI/CD &amp; DevSecOps</h3>
+          <p>
+            Automated test suites, static analysis via SonarQube, secretless pipelines, and gated canary promotions across Azure DevOps and GitLab CI/CD.
+          </p>
+        </article>
+
+        <article class="card reveal delay-3">
+          <div class="card-emoji">☁️</div>
+          <h3>Enterprise Virtualization</h3>
+          <p>
+            Production Azure Virtual Desktop (AVD) architectures with FSLogix profile storage containers on ultra-low latency Azure NetApp Files.
+          </p>
+        </article>
+
+        <article class="card reveal delay-1">
+          <div class="card-emoji">📈</div>
+          <h3>Observability &amp; Resilience</h3>
+          <p>
+            Centralized telemetry, Log Analytics workspaces, structured diagnostics, proactive alert fabrics, and self-healing cloud automation.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Featured Projects Section -->
+    <section id="projects" class="container">
+      <div class="section-header-center reveal">
+        <h2 class="section-title">
+          Featured <span class="gradient-text">Architectural Case Studies</span>
+        </h2>
+        <p class="section-subtitle">
+          Deep-dive projects demonstrating full-lifecycle cloud architecture, CI/CD, and platform reliability.
+        </p>
+      </div>
+
+      <div class="card-grid">
+        <!-- Project 1: LifeOps -->
+        <article class="card reveal delay-1">
+          <div class="card-emoji">🌟</div>
+          <h3>LifeOps — Personal Operating System</h3>
+          <p>
+            Production-grade personal life-management platform designed for intentional living. Engineered with a high-throughput Python and FastAPI backend, containerized via multi-stage Docker builds, and delivered through automated GitLab CI/CD pipelines to Azure Static Web Apps.
+          </p>
+          <ul class="card-tags">
+            <li class="card-tag">FastAPI</li>
+            <li class="card-tag">Python</li>
+            <li class="card-tag">Docker</li>
+            <li class="card-tag">GitLab CI/CD</li>
+            <li class="card-tag">Terraform</li>
+            <li class="card-tag">Azure SWA</li>
+          </ul>
+          <div class="card-footer">
+            <a href="https://lifeops.living" target="_blank" rel="noopener noreferrer" class="card-link">
+              <span>Visit Production Live</span>
+              <span aria-hidden="true">&nearr;</span>
+            </a>
+          </div>
+        </article>
+
+        <!-- Project 2: Enterprise AVD Platform -->
+        <article class="card reveal delay-2">
+          <div class="card-emoji">🖥️</div>
+          <h3>Enterprise Azure Virtual Desktop &amp; FSLogix</h3>
+          <p>
+            High-density virtual desktop infrastructure with sub-second profile attach for enterprise users at TCS. Decoupled user profiles into FSLogix VHD containers hosted on Azure NetApp Files, with automated off-peak deallocation runbooks that drastically reduced compute costs.
+          </p>
+          <ul class="card-tags">
+            <li class="card-tag">Azure Virtual Desktop</li>
+            <li class="card-tag">FSLogix</li>
+            <li class="card-tag">NetApp Files</li>
+            <li class="card-tag">PowerShell</li>
+            <li class="card-tag">Key Vault</li>
+          </ul>
+          <div class="card-footer">
+            <span class="card-tag">Enterprise Architecture</span>
+          </div>
+        </article>
+
+        <!-- Project 3: Zero-Trust CI/CD Automation -->
+        <article class="card reveal delay-3">
+          <div class="card-emoji">🔒</div>
+          <h3>Zero-Trust Multi-Stage CI/CD Engine</h3>
+          <p>
+            Standardized delivery pipelines across Azure DevOps Pipelines and GitLab CI/CD. Enforces SonarQube automated quality gates with zero critical vulnerabilities and eliminates stored credentials via Managed Identities and ephemeral Key Vault secret retrieval.
+          </p>
+          <ul class="card-tags">
+            <li class="card-tag">Azure DevOps</li>
+            <li class="card-tag">GitLab CI</li>
+            <li class="card-tag">SonarQube</li>
+            <li class="card-tag">Key Vault</li>
+            <li class="card-tag">Docker</li>
+          </ul>
+          <div class="card-footer">
+            <span class="card-tag">Pipeline Framework</span>
+          </div>
+        </article>
+
+        <!-- Project 4: Modular Terraform Azure Foundation -->
+        <article class="card reveal delay-1">
+          <div class="card-emoji">🏗️</div>
+          <h3>Modular Azure Cloud Foundation</h3>
+          <p>
+            Reusable Infrastructure as Code framework for enterprise Azure landing zones. Codified hub-and-spoke virtual networks with peering, private DNS zones, customer-managed blob state locking, and pull request speculative plan validation gates.
+          </p>
+          <ul class="card-tags">
+            <li class="card-tag">Terraform</li>
+            <li class="card-tag">Azure VNets</li>
+            <li class="card-tag">Private Endpoints</li>
+            <li class="card-tag">Log Analytics</li>
+          </ul>
+          <div class="card-footer">
+            <span class="card-tag">IaC Framework</span>
+          </div>
+        </article>
+
+        <!-- Project 5: Applied RAG & Cloud-Native AI -->
+        <article class="card reveal delay-2">
+          <div class="card-emoji">🧠</div>
+          <h3>Applied RAG &amp; Cloud-Native AI Sandbox</h3>
+          <p>
+            Architectural sandbox exploring containerized LLM inference, dense vector embeddings, and hybrid semantic retrieval pipelines. Investigating automated weekly journaling reflections and agentic engineering assistants.
+          </p>
+          <ul class="card-tags">
+            <li class="card-tag">FastAPI</li>
+            <li class="card-tag">Vector DB</li>
+            <li class="card-tag">RAG</li>
+            <li class="card-tag">LLM Agents</li>
+          </ul>
+          <div class="card-footer">
+            <span class="card-tag">Research &amp; Exploration</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Technical Skills Section -->
+    <section id="skills" class="container">
+      <div class="section-header-center reveal">
+        <h2 class="section-title">
+          Technical <span class="gradient-text">Skills &amp; Tooling</span>
+        </h2>
+        <p class="section-subtitle">
+          Production-tested technologies, automation tools, and delivery frameworks.
+        </p>
+      </div>
+
+      <div class="card-grid">
+        <article class="card reveal delay-1">
+          <div class="card-emoji">☁️</div>
+          <h3>Cloud Platforms</h3>
+          <p>
+            Microsoft Azure &bull; Azure NetApp Files &bull; Key Vault &bull; Azure Monitor &bull; Log Analytics &bull; Virtual Networks &bull; Private Endpoints &bull; Azure DNS &bull; Azure Static Web Apps
+          </p>
+        </article>
+
+        <article class="card reveal delay-2">
+          <div class="card-emoji">📜</div>
+          <h3>IaC &amp; Scripting</h3>
+          <p>
+            Terraform &bull; PowerShell Scripting &bull; Python Backend &bull; Declarative YAML &bull; Linux Bash/Shell &bull; SQLAlchemy ORM &bull; Automated Configuration
+          </p>
+        </article>
+
+        <article class="card reveal delay-3">
+          <div class="card-emoji">🔄</div>
+          <h3>CI/CD &amp; DevSecOps</h3>
+          <p>
+            Azure DevOps Pipelines &bull; GitLab CI/CD &bull; GitHub Actions &bull; Docker Containerization &bull; SonarQube Analysis &bull; pytest &bull; Ruff &bull; JIRA
+          </p>
+        </article>
+
+        <article class="card reveal delay-1">
+          <div class="card-emoji">🖥️</div>
+          <h3>Virtualization</h3>
+          <p>
+            Azure Virtual Desktop (AVD) &bull; FSLogix Profile Containers &bull; Dynamic Host Pool Scaling &bull; Golden Image Hardening &bull; Session Host Health Diagnostics
+          </p>
+        </article>
+
+        <article class="card reveal delay-2">
+          <div class="card-emoji">✨</div>
+          <h3>Applied AI &amp; Emerging</h3>
+          <p>
+            Large Language Models (LLMs) &bull; Retrieval-Augmented Generation (RAG) &bull; Vector Databases &bull; Agentic Workflows &bull; FastAPI Microservices &bull; Argo CD GitOps
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Experience & Certifications Section -->
+    <section id="experience" class="container">
+      <div class="section-header-center reveal">
+        <h2 class="section-title">
+          Career History &amp; <span class="gradient-text">Certifications</span>
+        </h2>
+        <p class="section-subtitle">
+          Demonstrated engineering leadership and industry-standard Microsoft credentials.
+        </p>
+      </div>
+
+      <div class="card-grid">
+        <!-- Experience Card -->
+        <article class="card reveal delay-1">
+          <div class="card-emoji">🏢</div>
+          <h3>Tata Consultancy Services</h3>
+          <p><strong>Senior Azure DevOps &amp; Cloud Engineer</strong> &bull; 2020 &mdash; Present (~6+ Years)</p>
+          <p style="margin-top: 12px;">
+            Leading cloud operations and automated delivery across client environments. Standardized multi-stage pipelines with SonarQube quality gates, authored Terraform modular landing zones, and scaled multi-session Azure Virtual Desktop fleets on NetApp storage.
+          </p>
+        </article>
+
+        <!-- Certifications Card -->
+        <article class="card reveal delay-2">
+          <div class="card-emoji">📜</div>
+          <h3>Microsoft Credentials</h3>
+          <p>
+            <strong>&bull; Microsoft Certified: Azure Virtual Desktop Specialty</strong> (AZ-140)
+          </p>
+          <p style="margin-top: 8px;">
+            <strong>&bull; Microsoft Certified: Azure Fundamentals</strong> (AZ-900)
+          </p>
+          <p style="margin-top: 8px;">
+            <strong>&bull; Microsoft Certified: DevOps Engineer Expert</strong> (AZ-400 Track &mdash; Active)
+          </p>
+        </article>
+
+        <!-- Continuous Learning Card -->
+        <article class="card reveal delay-3">
+          <div class="card-emoji">🔬</div>
+          <h3>Continuous Research</h3>
+          <p>
+            <strong>&bull; GitOps &amp; Argo CD:</strong> Declarative Kubernetes delivery patterns and continuous drift remediation.
+          </p>
+          <p style="margin-top: 8px;">
+            <strong>&bull; Hybrid Vector Systems:</strong> Semantic search engines and context augmentation for specialized knowledge retrieval.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Contact & Collaboration Section (Forms with inputs/textarea per specifications) -->
+    <section id="contact" class="container">
+      <div class="section-header-center reveal">
+        <h2 class="section-title">
+          Let's <span class="gradient-text">Connect &amp; Collaborate</span>
+        </h2>
+        <p class="section-subtitle">
+          Have an architecture to review, cloud workloads to automate, or an exciting opportunity? Let's talk.
+        </p>
+      </div>
+
+      <div class="contact-container">
+        <!-- Interactive Form -->
+        <div class="card reveal delay-1">
+          <div class="card-emoji">✉️</div>
+          <h3>Send a Direct Message</h3>
+          <p style="margin-bottom: 20px;">Fill out the details below and it will route directly to my inbox.</p>
+          
+          <form id="contact-form" class="contact-form">
+            <div class="form-group">
+              <label for="contact-name" class="form-label">Your Name</label>
+              <input type="text" id="contact-name" class="form-input" placeholder="e.g. Jane Doe" required />
+            </div>
+
+            <div class="form-group">
+              <label for="contact-email" class="form-label">Your Email</label>
+              <input type="email" id="contact-email" class="form-input" placeholder="e.g. jane@company.com" required />
+            </div>
+
+            <div class="form-group">
+              <label for="contact-message" class="form-label">Message / Project Inquiry</label>
+              <textarea id="contact-message" class="form-textarea" placeholder="Describe your cloud architecture needs or project requirements..." required></textarea>
+            </div>
+
+            <div id="form-status" class="form-status"></div>
+
+            <button type="submit" class="btn btn-primary" style="margin-top: 8px;">
+              <span>Send Message</span>
+              <span aria-hidden="true">&rarr;</span>
+            </button>
+          </form>
+        </div>
+
+        <!-- Verified Communication Channels & Live Location -->
+        <div class="card reveal delay-2">
+          <div class="card-emoji">📍</div>
+          <h3>Direct Channels &amp; Availability</h3>
+          <p>Feel free to reach out across verified professional networks or directly via email.</p>
+
+          <div class="contact-info-list">
+            <div class="contact-info-item">
+              <span class="contact-icon">📧</span>
+              <div>
+                <div style="font-size: 0.8rem; color: var(--muted);">Direct Email</div>
+                <div>officiallyarindam@gmail.com</div>
+              </div>
+              <button id="copy-email-btn" type="button" class="copy-btn" data-email="officiallyarindam@gmail.com" aria-label="Copy email address">
+                Copy
+              </button>
+            </div>
+
+            <a href="https://www.linkedin.com/in/mr-arindam-dutta/" target="_blank" rel="noopener noreferrer" class="contact-info-item">
+              <span class="contact-icon">💼</span>
+              <div>
+                <div style="font-size: 0.8rem; color: var(--muted);">LinkedIn Profile</div>
+                <div>linkedin.com/in/mr-arindam-dutta</div>
+              </div>
+              <span style="margin-left: auto; color: var(--accent-2);">&nearr;</span>
+            </a>
+
+            <a href="https://github.com/arindampersonal" target="_blank" rel="noopener noreferrer" class="contact-info-item">
+              <span class="contact-icon">🐙</span>
+              <div>
+                <div style="font-size: 0.8rem; color: var(--muted);">GitHub Repository</div>
+                <div>github.com/arindampersonal</div>
+              </div>
+              <span style="margin-left: auto; color: var(--accent-2);">&nearr;</span>
+            </a>
+
+            <a href="https://lifeops.living" target="_blank" rel="noopener noreferrer" class="contact-info-item">
+              <span class="contact-icon">🌟</span>
+              <div>
+                <div style="font-size: 0.8rem; color: var(--muted);">LifeOps Flagship</div>
+                <div>lifeops.living</div>
+              </div>
+              <span style="margin-left: auto; color: var(--accent-2);">&nearr;</span>
+            </a>
+
+            <div class="contact-info-item">
+              <span class="contact-icon">⏰</span>
+              <div>
+                <div style="font-size: 0.8rem; color: var(--muted);">Location &amp; Local Time</div>
+                <div>Kolkata, India &bull; <span id="live-clock" style="color: var(--accent-2); font-weight: 600;">IST (UTC+5:30)</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Centered Footer with Muted Text and 1px Top Border -->
+  <footer>
+    <div class="container">
+      <ul class="footer-nav">
+        <li><a href="#about" class="footer-link">About</a></li>
+        <li><a href="#pillars" class="footer-link">Pillars</a></li>
+        <li><a href="#projects" class="footer-link">Projects</a></li>
+        <li><a href="#skills" class="footer-link">Skills</a></li>
+        <li><a href="#experience" class="footer-link">Experience</a></li>
+        <li><a href="#contact" class="footer-link">Contact</a></li>
+      </ul>
+      <p style="margin-bottom: 8px;">
+        Designed with the <span class="gradient-text">Aurora</span> Glassmorphism Design System.
+      </p>
+      <p style="font-size: 0.85rem;">
+        &copy; 2026 Arindam Dutta &bull; Senior Azure DevOps &amp; Cloud Infrastructure Engineer. All rights reserved.
+      </p>
+    </div>
+  </footer>
+
+  <!-- Vanilla JavaScript -->
+  <script type="module" src="./main.js"></script>
+</body>
 </html>
